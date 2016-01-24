@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	var es6Codes = {
     'let' : require('./es6/let.js'),
-    'const' : require('./es6/const.js') 
+    'const' : require('./es6/const.js'),
+    'arrowFunction' : require('./es6/arrowFunction.js') 
   };
 
 	(function showCode() {
