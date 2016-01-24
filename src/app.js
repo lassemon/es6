@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var errorElement = document.createElement("div");
     var errorText = document.createElement("h5");
     errorText.classList.add('error-text');
-    errorText.innerHTML = "Invalid javascript";
+    errorText.innerHTML = "Invalid ECMAScript 6";
     errorElement.appendChild(errorText);
     errorElement.classList.add('error');
     return errorElement.outerHTML;
