@@ -4,12 +4,17 @@
   "description": "es6 with babel",
   "license": "MIT",
   "devDependencies": {
+    "browser-sync" : "^1.8.2",
     "gulp": "3.9.0",
     "gulp-eslint" : "1.1.1",
     "gulp-watch": "4.3.5",
     "gulp-batch" : "1.0.5",
+    "gulp-sourcemaps" : "1.6.0",
     "require-dir" : "0.3.0",
-    "gulp-babel": "6.1.1",
-    "babel-preset-es2015" : "6.3.13"
+    "browserify" : "9.0.3",
+    "vinyl-source-stream" : "1.1.0",
+    "vinyl-buffer" : "1.0.0",
+    "watchify" : "2.4.0",
+    "lodash" : "4.0.0"
   }
 }
