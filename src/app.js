@@ -7,31 +7,33 @@ document.addEventListener('DOMContentLoaded', function () {
 	var _ = require('lodash');
 
 	var es6Codes = {
-    let : require('./es6/let.js'),
-    const : require('./es6/const.js') 
+    'let' : require('./es6/let.js'),
+    'const' : require('./es6/const.js') 
   };
 
-	function showCode() {
+	(function showCode() {
     var container = u('body .container');
     _.forEach(es6Codes, function(value, key){
     	var codeContainer = createCodeContainer(value.toString(), key);
     	container.append(codeContainer);
-
-      container.find('.' + key + ' .input').on('input propertychange', function(event){
-        var textarea = u(event.target);
-        var babelContainerClassName = textarea.closest('.row').attr('class').split(" ")[1];
-        var babelContainer = u('.' + babelContainerClassName + ' pre');
-        var transformedCode = babelify(event.target.value);
-        if(transformedCode){
-          babelContainer.html(transformedCode);
-        }
-        else {
-          babelContainer.html(createErrorDisplay());
-        }
-      });
+      addChangeListener(container, key);
     });
-	};
-	showCode();
+	})();
+
+  function addChangeListener(container, key){
+    container.find('.' + key + ' .input').on('input propertychange', function(event){
+      var textarea = u(event.target);
+      var babelContainerClassName = textarea.closest('.row').attr('class').split(" ")[1];
+      var babelContainer = u('.' + babelContainerClassName + ' pre');
+      var transformedCode = babelify(event.target.value);
+      if(transformedCode){
+        babelContainer.html(transformedCode);
+      }
+      else {
+        babelContainer.html(createErrorDisplay());
+      }
+    });
+  };
 
 	function createCodeContainer(es6Code, className){
 		var template = u(document.createElement('div'));
