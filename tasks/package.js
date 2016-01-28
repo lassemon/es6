@@ -1,5 +1,10 @@
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
 gulp.task('package', function() {
-  gulp.src([gulp.paths.tempDir + '/**/*']).pipe(gulp.dest(gulp.paths.packageDir));
+  runSequence('temp', copy);
 });
+
+function copy() {
+  gulp.src(gulp.paths.tempDir + '/**/*').pipe(gulp.dest(gulp.paths.packageDir));
+};

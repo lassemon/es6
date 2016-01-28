@@ -1,6 +1,7 @@
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
-gulp.task('temp', ['clean'], function () {
-  gulp.start('js', 'styles', 'html', 'lib');
+gulp.task('temp', function (cb) {
+  runSequence(['js', 'styles', 'html', 'lib'], cb);
 });
 

@@ -3,7 +3,6 @@ var gutil = require('gulp-util');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 var extend = require('util')._extend
 
@@ -26,8 +25,9 @@ function buildBundle(bundler){
     .pipe(gulp.dest(gulp.paths.tempDir))
 }
 
-gulp.task('browserify-watch', function(){
+gulp.task('browserify-watch', function(cb){
   initBundleWithWatch();
+  cb();
 });
 
 function initBundleWithWatch(){
