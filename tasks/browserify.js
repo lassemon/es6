@@ -1,14 +1,18 @@
 var gulp = require('gulp');
+var gutil = require('gulp-util');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
+var uglify = require('gulp-uglify');
 var watchify = require('watchify');
 var extend = require('util')._extend
 
-var sourcePath = './src/app.js';
+gulp.task('browserify', function(){
+  developmentBundle();
+});
 
-function build(){
-  var bundler = browserify(sourcePath);
+function developmentBundle(){
+  var bundler = browserify(gulp.paths.jsApp);
   buildBundle(bundler);
 }
 
@@ -19,17 +23,12 @@ function buildBundle(bundler){
     })
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(gulp.paths.tempDir))
 }
 
-gulp.task('browserify', function(){
-  build();
+gulp.task('browserify-watch', function(){
+  initBundleWithWatch();
 });
-
-function watchifyBundle(){
-  var bundler = browserify(sourcePath);
-  watchifyBundle(bundler);
-}
 
 function initBundleWithWatch(){
   var watchifyBrowserifyOpts = {
@@ -38,11 +37,11 @@ function initBundleWithWatch(){
 
   watchifyBrowserifyOpts = extend(watchifyBrowserifyOpts, watchify.args);
 
-  var bundler = watchify(browserify(sourcePath, watchifyBrowserifyOpts));
+  var bundler = watchify(browserify(gulp.paths.jsApp, watchifyBrowserifyOpts));
 
-	bundler.on('update', function(){
-		watchifyBundle(bundler);
-	});
+  bundler.on('update', function(){
+    watchifyBundle(bundler);
+  });
   
   watchifyBundle(bundler);
 }
@@ -54,10 +53,6 @@ function watchifyBundle(bundler) {
     })
     .pipe(source('bundle.js'))
     .pipe(buffer())
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest(gulp.paths.tempDir))
 }
-
-gulp.task('browserify-watch', function(){
-	initBundleWithWatch();
-});
 

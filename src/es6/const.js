@@ -1,7 +1,7 @@
 function constDemo() {
   "use strict";
   
-  const imImmutable = "barf barf!"; // can't touch this
+  const imImmutable = "hammertime!"; // can't touch this
   console.log(imImmutable); 
 };
 

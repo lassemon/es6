@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
-gulp.task('default', ['lint', 'browserify', 'lib', 'html', 'styles'], function() {
+gulp.task('default', ['temp'], function() {
   gulp.start('watch');
 });

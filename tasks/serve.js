@@ -7,12 +7,12 @@ gulp.task('serve', function () {
     notify: false,
     port: 8080,
     server: {
-      baseDir: ['./dist']
+      baseDir: [gulp.paths.tempDir]
     }
     
   });
 
   gulp.watch([
-    './dist/**'
+    gulp.paths.tempDir + '/**'
   ]).on('change', reload);
 });
