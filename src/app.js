@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
   u('.spinner').addClass('hidden');
   u('.title').removeClass('hidden');
 
-	var _ = require('lodash');
-
 	var es6Codes = {
     'let' : require('./es6/let.js'),
     'const' : require('./es6/const.js'),

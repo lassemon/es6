@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 gulp.task('package', function() {
-  runSequence('temp', copy);
+  runSequence('build', copy);
 });
 
 function copy() {

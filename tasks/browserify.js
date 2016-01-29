@@ -24,35 +24,3 @@ function buildBundle(bundler){
     .pipe(buffer())
     .pipe(gulp.dest(gulp.paths.tempDir))
 }
-
-gulp.task('browserify-watch', function(cb){
-  initBundleWithWatch();
-  cb();
-});
-
-function initBundleWithWatch(){
-  var watchifyBrowserifyOpts = {
-    debug: true
-  }
-
-  watchifyBrowserifyOpts = extend(watchifyBrowserifyOpts, watchify.args);
-
-  var bundler = watchify(browserify(gulp.paths.jsApp, watchifyBrowserifyOpts));
-
-  bundler.on('update', function(){
-    watchifyBundle(bundler);
-  });
-  
-  watchifyBundle(bundler);
-}
-
-function watchifyBundle(bundler) {
-  bundler.bundle()
-    .on('error', function(err){
-      console.log(err.message);
-    })
-    .pipe(source('bundle.js'))
-    .pipe(buffer())
-    .pipe(gulp.dest(gulp.paths.tempDir))
-}
-
