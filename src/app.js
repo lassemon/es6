@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	(function showCode() {
     var container = u('body .container');
     _.forEach(es6Codes, function(value, key){
-    	var codeContainer = createCodeContainer(value.toString(), key);
+    	var codeContainer = createCodeContainer(value, key);
     	container.append(codeContainer);
       addChangeListener(container, key);
     });

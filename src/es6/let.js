@@ -1,6 +1,4 @@
 function letDemo() {
-  "use strict";
-  
   var cowSays = "woof woof!";
   if(true) {
     let cowSays = "moo";
@@ -8,5 +6,3 @@ function letDemo() {
   };
   console.log(cowSays); // prints woof woof!
 };
-
-module.exports = letDemo;

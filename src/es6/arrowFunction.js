@@ -1,6 +1,4 @@
 function arrowFunctionDemo() {
-  "use strict";
-
   // parameter definition with assignment
   let identity = x => x;
 
@@ -12,5 +10,3 @@ function arrowFunctionDemo() {
   let key_master = val => ({key: val});
   console.log(key_master('gatekeeper')) // {key:'gatekeeper'}
 };
-
-module.exports = arrowFunctionDemo;
