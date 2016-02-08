@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
+  var fs = require('fs');
 
   u('.spinner').addClass('hidden');
   u('.title').removeClass('hidden');
 
 	var es6Codes = {
-    'let' : require('./es6/let.js'),
-    'const' : require('./es6/const.js'),
-    'arrowFunction' : require('./es6/arrowFunction.js') 
+    'let' : fs.readFileSync('./src/es6/let.js', 'utf8'),
+    'const' : fs.readFileSync('./src/es6/const.js', 'utf8'),
+    'arrowFunction' : fs.readFileSync('./src/es6/arrowFunction.js', 'utf8')
   };
 
 	(function showCode() {
