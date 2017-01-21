@@ -1,8 +1,12 @@
+// var y = function(x) {
+//   return x;
+// }
+// becomes:
 let y = x => x;
 
 // function body after arrow
 let plus = x => x + x;
-console.log(plus(2)); // 4
+plus(2); // returns 4
 
 // also works
 let plus2 = (x) => x + x;
