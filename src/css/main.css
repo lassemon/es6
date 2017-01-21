@@ -69,3 +69,16 @@ pre {
   padding: .5em;
   word-wrap: break-word;
 }
+
+
+@media screen and (max-width: 720px) {
+    .container {
+      width: 100%;
+    }
+    .column {
+      margin: 0;
+    }
+    .one-half.column {
+      width: 50%;
+    }
+}
