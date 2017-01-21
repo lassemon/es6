@@ -1,9 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
 	'use strict';
-  var fs = require('fs');
 
   u('.spinner').addClass('hidden');
   u('.title').removeClass('hidden');
+
+  var fs = require('fs');
 
 	var es6Codes = {
     'let' : fs.readFileSync('./src/es6/let.js', 'utf8'),
@@ -20,6 +21,17 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 	})();
 
+  (function resizeDOM() {
+    u('textarea.input').each(function(node){
+      textAreaAdjust(node);
+    });
+  })();
+
+  function textAreaAdjust(textarea) {
+    textarea.style.height = "1px";
+    textarea.style.height = (25+textarea.scrollHeight)+"px";
+  };
+
   function addChangeListener(container, key){
     container.find('.' + key + ' .input').on('input propertychange', function(event){
       var textarea = u(event.target);
@@ -32,6 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
       else {
         babelContainer.html(createErrorDisplay());
       }
+      textAreaAdjust(textarea.nodes[0]);
     });
   };
 
@@ -83,5 +96,4 @@ document.addEventListener('DOMContentLoaded', function () {
       return false;
     }
   };
-
 });
