@@ -22,4 +22,5 @@ let sayHello = () => {
 // we can't write this: let foo = val => {key: val};
 // because json notation is interpreted as the function curly brackets
 let foo = val => ({key: val});
-console.log(key_master('bar')) // {key:'bar'}
+foo('bar');
+// returns {key:'bar'}

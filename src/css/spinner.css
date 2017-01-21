@@ -5,8 +5,8 @@
   position: relative;
   margin: 100px auto;
 
-  top: 50%;
-  transform: translate(-50%);
+  top: 30%;
+  transform: translateY(-50%);
 }
 
 .double-bounce1, .double-bounce2 {
