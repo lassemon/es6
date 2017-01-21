@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
     'custom' : fs.readFileSync('./src/es6/custom.js', 'utf8'),
     'let' : fs.readFileSync('./src/es6/let.js', 'utf8'),
     'const' : fs.readFileSync('./src/es6/const.js', 'utf8'),
-    'arrowFunction' : fs.readFileSync('./src/es6/arrowFunction.js', 'utf8')
+    'arrowFunction' : fs.readFileSync('./src/es6/arrowFunction.js', 'utf8'),
+    'destructuring' : fs.readFileSync('./src/es6/destructuring.js', 'utf8'),
+    'defaults' : fs.readFileSync('./src/es6/defaults.js', 'utf8')
   };
 
   (function showCode() {

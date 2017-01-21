@@ -1,4 +1,3 @@
-// parameter definition with assignment
 let y = x => x;
 
 // function body after arrow
